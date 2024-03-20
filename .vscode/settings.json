@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "TP1_Carrier_Aleck.sln"
+    "dotnet.defaultSolution": "JV2_TP1.sln"
 }
