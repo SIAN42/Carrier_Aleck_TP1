@@ -1,1 +1,94 @@
-{}
+{
+    "name": "VoitureMouvement",
+    "maps": [
+        {
+            "name": "Normal",
+            "id": "7d7c75f9-7a9b-4e30-8360-4fa2d9f37673",
+            "actions": [
+                {
+                    "name": "Avance",
+                    "type": "Button",
+                    "id": "d1863283-0bde-4625-bdb9-bb06541e0966",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Gauche",
+                    "type": "Button",
+                    "id": "c42e66c1-ccf2-41e7-8b1d-e7e276385a4d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Droite",
+                    "type": "Button",
+                    "id": "e3100255-47d1-492a-b176-02ffec0b6e36",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Recule",
+                    "type": "Button",
+                    "id": "684f06b2-cc2a-4c37-adc4-4848b56ad727",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "10332fb6-3ed8-4581-9eca-287664f76a69",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Avance",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "01231ce9-1234-4f37-be25-4b54ff037958",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Gauche",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5c0d5fa0-2d38-4af4-9eda-5ecd42402a27",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Droite",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7f20881e-e2a7-464b-b805-72644b339e00",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Recule",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

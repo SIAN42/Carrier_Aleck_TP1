@@ -22,9 +22,104 @@ public partial class @VoitureMouvement: IInputActionCollection2, IDisposable
     {
         asset = InputActionAsset.FromJson(@"{
     ""name"": ""VoitureMouvement"",
-    ""maps"": [],
+    ""maps"": [
+        {
+            ""name"": ""Normal"",
+            ""id"": ""7d7c75f9-7a9b-4e30-8360-4fa2d9f37673"",
+            ""actions"": [
+                {
+                    ""name"": ""Avance"",
+                    ""type"": ""Button"",
+                    ""id"": ""d1863283-0bde-4625-bdb9-bb06541e0966"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Gauche"",
+                    ""type"": ""Button"",
+                    ""id"": ""c42e66c1-ccf2-41e7-8b1d-e7e276385a4d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Droite"",
+                    ""type"": ""Button"",
+                    ""id"": ""e3100255-47d1-492a-b176-02ffec0b6e36"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Recule"",
+                    ""type"": ""Button"",
+                    ""id"": ""684f06b2-cc2a-4c37-adc4-4848b56ad727"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""10332fb6-3ed8-4581-9eca-287664f76a69"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Avance"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""01231ce9-1234-4f37-be25-4b54ff037958"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Gauche"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5c0d5fa0-2d38-4af4-9eda-5ecd42402a27"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Droite"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7f20881e-e2a7-464b-b805-72644b339e00"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Recule"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        }
+    ],
     ""controlSchemes"": []
 }");
+        // Normal
+        m_Normal = asset.FindActionMap("Normal", throwIfNotFound: true);
+        m_Normal_Avance = m_Normal.FindAction("Avance", throwIfNotFound: true);
+        m_Normal_Gauche = m_Normal.FindAction("Gauche", throwIfNotFound: true);
+        m_Normal_Droite = m_Normal.FindAction("Droite", throwIfNotFound: true);
+        m_Normal_Recule = m_Normal.FindAction("Recule", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -81,5 +176,82 @@ public partial class @VoitureMouvement: IInputActionCollection2, IDisposable
     public int FindBinding(InputBinding bindingMask, out InputAction action)
     {
         return asset.FindBinding(bindingMask, out action);
+    }
+
+    // Normal
+    private readonly InputActionMap m_Normal;
+    private List<INormalActions> m_NormalActionsCallbackInterfaces = new List<INormalActions>();
+    private readonly InputAction m_Normal_Avance;
+    private readonly InputAction m_Normal_Gauche;
+    private readonly InputAction m_Normal_Droite;
+    private readonly InputAction m_Normal_Recule;
+    public struct NormalActions
+    {
+        private @VoitureMouvement m_Wrapper;
+        public NormalActions(@VoitureMouvement wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Avance => m_Wrapper.m_Normal_Avance;
+        public InputAction @Gauche => m_Wrapper.m_Normal_Gauche;
+        public InputAction @Droite => m_Wrapper.m_Normal_Droite;
+        public InputAction @Recule => m_Wrapper.m_Normal_Recule;
+        public InputActionMap Get() { return m_Wrapper.m_Normal; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(NormalActions set) { return set.Get(); }
+        public void AddCallbacks(INormalActions instance)
+        {
+            if (instance == null || m_Wrapper.m_NormalActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_NormalActionsCallbackInterfaces.Add(instance);
+            @Avance.started += instance.OnAvance;
+            @Avance.performed += instance.OnAvance;
+            @Avance.canceled += instance.OnAvance;
+            @Gauche.started += instance.OnGauche;
+            @Gauche.performed += instance.OnGauche;
+            @Gauche.canceled += instance.OnGauche;
+            @Droite.started += instance.OnDroite;
+            @Droite.performed += instance.OnDroite;
+            @Droite.canceled += instance.OnDroite;
+            @Recule.started += instance.OnRecule;
+            @Recule.performed += instance.OnRecule;
+            @Recule.canceled += instance.OnRecule;
+        }
+
+        private void UnregisterCallbacks(INormalActions instance)
+        {
+            @Avance.started -= instance.OnAvance;
+            @Avance.performed -= instance.OnAvance;
+            @Avance.canceled -= instance.OnAvance;
+            @Gauche.started -= instance.OnGauche;
+            @Gauche.performed -= instance.OnGauche;
+            @Gauche.canceled -= instance.OnGauche;
+            @Droite.started -= instance.OnDroite;
+            @Droite.performed -= instance.OnDroite;
+            @Droite.canceled -= instance.OnDroite;
+            @Recule.started -= instance.OnRecule;
+            @Recule.performed -= instance.OnRecule;
+            @Recule.canceled -= instance.OnRecule;
+        }
+
+        public void RemoveCallbacks(INormalActions instance)
+        {
+            if (m_Wrapper.m_NormalActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(INormalActions instance)
+        {
+            foreach (var item in m_Wrapper.m_NormalActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_NormalActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public NormalActions @Normal => new NormalActions(this);
+    public interface INormalActions
+    {
+        void OnAvance(InputAction.CallbackContext context);
+        void OnGauche(InputAction.CallbackContext context);
+        void OnDroite(InputAction.CallbackContext context);
+        void OnRecule(InputAction.CallbackContext context);
     }
 }
