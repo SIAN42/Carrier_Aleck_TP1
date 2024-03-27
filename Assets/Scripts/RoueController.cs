@@ -2,49 +2,33 @@ using UnityEngine;
 
 public class RoueController : MonoBehaviour
 {
+    public Transform wheelModel;
 
-    // WheelCollider des 4 roues
-    [SerializeField] private WheelCollider roueFL;
-    [SerializeField] private WheelCollider roueFR;
-    [SerializeField] private WheelCollider roueRL;
-    [SerializeField] private WheelCollider roueRR;
+    [HideInInspector] public WheelCollider WheelCollider;
 
-    // variables de mouvement
-    [SerializeField] private float acceleration = 500f;
-    [SerializeField] private float breakingForce = 300f;
-    [SerializeField] private float maxTurnAngle = 30f;
+    // Create properties for the CarControl script
+    // (You should enable/disable these via the 
+    // Editor Inspector window)
+    public bool steerable;
+    public bool motorized;
 
-    // variables de mouvement en cours
-    private float currentAcceleration = 0;
-    private float currentBreakForce = 0;
-    private float currentTurnAngle = 0;
+    Vector3 position;
+    Quaternion rotation;
 
-// https://www.youtube.com/watch?v=QQs9MWLU_tU&t=2s
-// https://docs.unity3d.com/Manual/WheelColliderTutorial.html
-// https://prasetion.medium.com/basic-car-movement-with-new-input-system-unity-f604229da834
-
-    void Start()
+    // Start is called before the first frame update
+    private void Start()
     {
-        
+        WheelCollider = GetComponent<WheelCollider>();
     }
 
+    // Update is called once per frame
     void Update()
     {
-
-        // Force des roues avant
-        roueFL.motorTorque = currentAcceleration;
-        roueFR.motorTorque = currentAcceleration;
-
-        // Force de freinement des 4 roues
-        roueFL.brakeTorque = currentBreakForce;
-        roueFR.brakeTorque = currentBreakForce;
-        roueRL.brakeTorque = currentBreakForce;
-        roueRR.brakeTorque = currentBreakForce;
-
-        // Angle du virage
-        currentTurnAngle = maxTurnAngle * Input.GetAxis("Horizontale");
-        roueFL.steerAngle = currentTurnAngle;
-        roueFR.steerAngle = currentTurnAngle;
-
+        // Get the Wheel collider's world pose values and
+        // use them to set the wheel model's position and rotation
+        WheelCollider.GetWorldPose(out position, out rotation);
+        wheelModel.transform.position = position;
+        wheelModel.transform.rotation = rotation;
     }
+    
 }

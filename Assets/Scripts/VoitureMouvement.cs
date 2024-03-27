@@ -62,13 +62,22 @@ public partial class @VoitureMouvement: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Break"",
+                    ""type"": ""Button"",
+                    ""id"": ""21950f4f-889b-41ac-9fe3-c21b76494e35"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
                     ""id"": ""10332fb6-3ed8-4581-9eca-287664f76a69"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -79,7 +88,7 @@ public partial class @VoitureMouvement: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""01231ce9-1234-4f37-be25-4b54ff037958"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -90,7 +99,7 @@ public partial class @VoitureMouvement: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""5c0d5fa0-2d38-4af4-9eda-5ecd42402a27"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -101,11 +110,22 @@ public partial class @VoitureMouvement: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""7f20881e-e2a7-464b-b805-72644b339e00"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Recule"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""707504de-4665-443e-80e7-ce111c11c7f1"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Break"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -120,6 +140,7 @@ public partial class @VoitureMouvement: IInputActionCollection2, IDisposable
         m_Normal_Gauche = m_Normal.FindAction("Gauche", throwIfNotFound: true);
         m_Normal_Droite = m_Normal.FindAction("Droite", throwIfNotFound: true);
         m_Normal_Recule = m_Normal.FindAction("Recule", throwIfNotFound: true);
+        m_Normal_Break = m_Normal.FindAction("Break", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -185,6 +206,7 @@ public partial class @VoitureMouvement: IInputActionCollection2, IDisposable
     private readonly InputAction m_Normal_Gauche;
     private readonly InputAction m_Normal_Droite;
     private readonly InputAction m_Normal_Recule;
+    private readonly InputAction m_Normal_Break;
     public struct NormalActions
     {
         private @VoitureMouvement m_Wrapper;
@@ -193,6 +215,7 @@ public partial class @VoitureMouvement: IInputActionCollection2, IDisposable
         public InputAction @Gauche => m_Wrapper.m_Normal_Gauche;
         public InputAction @Droite => m_Wrapper.m_Normal_Droite;
         public InputAction @Recule => m_Wrapper.m_Normal_Recule;
+        public InputAction @Break => m_Wrapper.m_Normal_Break;
         public InputActionMap Get() { return m_Wrapper.m_Normal; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -214,6 +237,9 @@ public partial class @VoitureMouvement: IInputActionCollection2, IDisposable
             @Recule.started += instance.OnRecule;
             @Recule.performed += instance.OnRecule;
             @Recule.canceled += instance.OnRecule;
+            @Break.started += instance.OnBreak;
+            @Break.performed += instance.OnBreak;
+            @Break.canceled += instance.OnBreak;
         }
 
         private void UnregisterCallbacks(INormalActions instance)
@@ -230,6 +256,9 @@ public partial class @VoitureMouvement: IInputActionCollection2, IDisposable
             @Recule.started -= instance.OnRecule;
             @Recule.performed -= instance.OnRecule;
             @Recule.canceled -= instance.OnRecule;
+            @Break.started -= instance.OnBreak;
+            @Break.performed -= instance.OnBreak;
+            @Break.canceled -= instance.OnBreak;
         }
 
         public void RemoveCallbacks(INormalActions instance)
@@ -253,5 +282,6 @@ public partial class @VoitureMouvement: IInputActionCollection2, IDisposable
         void OnGauche(InputAction.CallbackContext context);
         void OnDroite(InputAction.CallbackContext context);
         void OnRecule(InputAction.CallbackContext context);
+        void OnBreak(InputAction.CallbackContext context);
     }
 }
