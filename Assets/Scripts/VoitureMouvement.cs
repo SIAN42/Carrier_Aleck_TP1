@@ -24,53 +24,17 @@ public partial class @VoitureMouvement: IInputActionCollection2, IDisposable
     ""name"": ""VoitureMouvement"",
     ""maps"": [
         {
-            ""name"": ""Normal"",
+            ""name"": ""Voiture"",
             ""id"": ""7d7c75f9-7a9b-4e30-8360-4fa2d9f37673"",
             ""actions"": [
                 {
-                    ""name"": ""Avance"",
-                    ""type"": ""Button"",
+                    ""name"": ""Bouge"",
+                    ""type"": ""Value"",
                     ""id"": ""d1863283-0bde-4625-bdb9-bb06541e0966"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Gauche"",
-                    ""type"": ""Button"",
-                    ""id"": ""c42e66c1-ccf2-41e7-8b1d-e7e276385a4d"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Droite"",
-                    ""type"": ""Button"",
-                    ""id"": ""e3100255-47d1-492a-b176-02ffec0b6e36"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Recule"",
-                    ""type"": ""Button"",
-                    ""id"": ""684f06b2-cc2a-4c37-adc4-4848b56ad727"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Break"",
-                    ""type"": ""Button"",
-                    ""id"": ""21950f4f-889b-41ac-9fe3-c21b76494e35"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -81,7 +45,7 @@ public partial class @VoitureMouvement: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Avance"",
+                    ""action"": ""Bouge"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -92,18 +56,7 @@ public partial class @VoitureMouvement: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Gauche"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""5c0d5fa0-2d38-4af4-9eda-5ecd42402a27"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Droite"",
+                    ""action"": ""Bouge"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -114,7 +67,18 @@ public partial class @VoitureMouvement: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Recule"",
+                    ""action"": ""Bouge"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5c0d5fa0-2d38-4af4-9eda-5ecd42402a27"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Bouge"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -125,7 +89,7 @@ public partial class @VoitureMouvement: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Break"",
+                    ""action"": ""Bouge"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -134,13 +98,9 @@ public partial class @VoitureMouvement: IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": []
 }");
-        // Normal
-        m_Normal = asset.FindActionMap("Normal", throwIfNotFound: true);
-        m_Normal_Avance = m_Normal.FindAction("Avance", throwIfNotFound: true);
-        m_Normal_Gauche = m_Normal.FindAction("Gauche", throwIfNotFound: true);
-        m_Normal_Droite = m_Normal.FindAction("Droite", throwIfNotFound: true);
-        m_Normal_Recule = m_Normal.FindAction("Recule", throwIfNotFound: true);
-        m_Normal_Break = m_Normal.FindAction("Break", throwIfNotFound: true);
+        // Voiture
+        m_Voiture = asset.FindActionMap("Voiture", throwIfNotFound: true);
+        m_Voiture_Bouge = m_Voiture.FindAction("Bouge", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -199,89 +159,53 @@ public partial class @VoitureMouvement: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Normal
-    private readonly InputActionMap m_Normal;
-    private List<INormalActions> m_NormalActionsCallbackInterfaces = new List<INormalActions>();
-    private readonly InputAction m_Normal_Avance;
-    private readonly InputAction m_Normal_Gauche;
-    private readonly InputAction m_Normal_Droite;
-    private readonly InputAction m_Normal_Recule;
-    private readonly InputAction m_Normal_Break;
-    public struct NormalActions
+    // Voiture
+    private readonly InputActionMap m_Voiture;
+    private List<IVoitureActions> m_VoitureActionsCallbackInterfaces = new List<IVoitureActions>();
+    private readonly InputAction m_Voiture_Bouge;
+    public struct VoitureActions
     {
         private @VoitureMouvement m_Wrapper;
-        public NormalActions(@VoitureMouvement wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Avance => m_Wrapper.m_Normal_Avance;
-        public InputAction @Gauche => m_Wrapper.m_Normal_Gauche;
-        public InputAction @Droite => m_Wrapper.m_Normal_Droite;
-        public InputAction @Recule => m_Wrapper.m_Normal_Recule;
-        public InputAction @Break => m_Wrapper.m_Normal_Break;
-        public InputActionMap Get() { return m_Wrapper.m_Normal; }
+        public VoitureActions(@VoitureMouvement wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Bouge => m_Wrapper.m_Voiture_Bouge;
+        public InputActionMap Get() { return m_Wrapper.m_Voiture; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(NormalActions set) { return set.Get(); }
-        public void AddCallbacks(INormalActions instance)
+        public static implicit operator InputActionMap(VoitureActions set) { return set.Get(); }
+        public void AddCallbacks(IVoitureActions instance)
         {
-            if (instance == null || m_Wrapper.m_NormalActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_NormalActionsCallbackInterfaces.Add(instance);
-            @Avance.started += instance.OnAvance;
-            @Avance.performed += instance.OnAvance;
-            @Avance.canceled += instance.OnAvance;
-            @Gauche.started += instance.OnGauche;
-            @Gauche.performed += instance.OnGauche;
-            @Gauche.canceled += instance.OnGauche;
-            @Droite.started += instance.OnDroite;
-            @Droite.performed += instance.OnDroite;
-            @Droite.canceled += instance.OnDroite;
-            @Recule.started += instance.OnRecule;
-            @Recule.performed += instance.OnRecule;
-            @Recule.canceled += instance.OnRecule;
-            @Break.started += instance.OnBreak;
-            @Break.performed += instance.OnBreak;
-            @Break.canceled += instance.OnBreak;
+            if (instance == null || m_Wrapper.m_VoitureActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_VoitureActionsCallbackInterfaces.Add(instance);
+            @Bouge.started += instance.OnBouge;
+            @Bouge.performed += instance.OnBouge;
+            @Bouge.canceled += instance.OnBouge;
         }
 
-        private void UnregisterCallbacks(INormalActions instance)
+        private void UnregisterCallbacks(IVoitureActions instance)
         {
-            @Avance.started -= instance.OnAvance;
-            @Avance.performed -= instance.OnAvance;
-            @Avance.canceled -= instance.OnAvance;
-            @Gauche.started -= instance.OnGauche;
-            @Gauche.performed -= instance.OnGauche;
-            @Gauche.canceled -= instance.OnGauche;
-            @Droite.started -= instance.OnDroite;
-            @Droite.performed -= instance.OnDroite;
-            @Droite.canceled -= instance.OnDroite;
-            @Recule.started -= instance.OnRecule;
-            @Recule.performed -= instance.OnRecule;
-            @Recule.canceled -= instance.OnRecule;
-            @Break.started -= instance.OnBreak;
-            @Break.performed -= instance.OnBreak;
-            @Break.canceled -= instance.OnBreak;
+            @Bouge.started -= instance.OnBouge;
+            @Bouge.performed -= instance.OnBouge;
+            @Bouge.canceled -= instance.OnBouge;
         }
 
-        public void RemoveCallbacks(INormalActions instance)
+        public void RemoveCallbacks(IVoitureActions instance)
         {
-            if (m_Wrapper.m_NormalActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_VoitureActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(INormalActions instance)
+        public void SetCallbacks(IVoitureActions instance)
         {
-            foreach (var item in m_Wrapper.m_NormalActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_VoitureActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_NormalActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_VoitureActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public NormalActions @Normal => new NormalActions(this);
-    public interface INormalActions
+    public VoitureActions @Voiture => new VoitureActions(this);
+    public interface IVoitureActions
     {
-        void OnAvance(InputAction.CallbackContext context);
-        void OnGauche(InputAction.CallbackContext context);
-        void OnDroite(InputAction.CallbackContext context);
-        void OnRecule(InputAction.CallbackContext context);
-        void OnBreak(InputAction.CallbackContext context);
+        void OnBouge(InputAction.CallbackContext context);
     }
 }

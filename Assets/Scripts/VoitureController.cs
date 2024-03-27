@@ -2,82 +2,74 @@ using UnityEngine;
 
 public class VoitureController : MonoBehaviour
 {
-    public float motorTorque = 2000;
-    public float brakeTorque = 2000;
-    public float maxSpeed = 20;
-    public float steeringRange = 30;
-    public float steeringRangeAtMaxSpeed = 10;
-    public float centreOfGravityOffset = -1f;
+    private VoitureMouvement controls;
+// WheelCollider des 4 roues
+    [SerializeField] private WheelCollider roueFL;
+    [SerializeField] private WheelCollider roueFR;
+    [SerializeField] private WheelCollider roueRL;
+    [SerializeField] private WheelCollider roueRR;
 
-    RoueController[] wheels;
-    Rigidbody rigidBody;
+    // wheel mesh
+    [SerializeField] private Transform frontRightWheelMesh;
+    [SerializeField] private Transform frontLeftWheelMesh;
+    [SerializeField] private Transform backRightWheelMesh;
+    [SerializeField] private Transform backLeftWheelMesh;
 
-    // Start is called before the first frame update
-    void Start()
+    
+    [SerializeField] private float acceleration = 500f;
+    [SerializeField] private float breakingForce = 300f;
+    [SerializeField] private float maxTurnAngle = 15f;
+
+    float currentAcceleration = 0;
+    float currentBreakForce = 0;
+    float currentTurnAngle = 0;
+
+    void Awake()
     {
-        rigidBody = GetComponent<Rigidbody>();
-
-        // Adjust center of mass vertically, to help prevent the car from rolling
-        rigidBody.centerOfMass += Vector3.up * centreOfGravityOffset;
-
-        // Find all child GameObjects that have the WheelControl script attached
-        wheels = GetComponentsInChildren<RoueController>();
+        controls = new VoitureMouvement();
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnEnable()
     {
+        controls.Enable();
+    }
 
-        float vInput = Input.GetAxis("Vertical");
-        float hInput = Input.GetAxis("Horizontal");
+    void OnDisable()
+    {
+        controls.Disable();
+    }
 
-        // Calculate current speed in relation to the forward direction of the car
-        // (this returns a negative number when traveling backwards)
-        float forwardSpeed = Vector3.Dot(transform.forward, rigidBody.velocity);
+    void FixedUpdate()
+    {
+        currentAcceleration = acceleration * controls.Voiture.Bouge.ReadValue<Vector2>().y;
 
+        roueFL.motorTorque = currentAcceleration;
+        roueFL.motorTorque = currentAcceleration;
 
-        // Calculate how close the car is to top speed
-        // as a number from zero to one
-        float speedFactor = Mathf.InverseLerp(0, maxSpeed, forwardSpeed);
+        roueFR.brakeTorque = currentBreakForce;
+        roueFL.brakeTorque = currentBreakForce;
+        roueRR.brakeTorque = currentBreakForce;
+        roueRL.brakeTorque = currentBreakForce;
 
-        // Use that to calculate how much torque is available 
-        // (zero torque at top speed)
-        float currentMotorTorque = Mathf.Lerp(motorTorque, 0, speedFactor);
+        currentTurnAngle = maxTurnAngle * controls.Voiture.Bouge.ReadValue<Vector2>().x;
+        roueFL.steerAngle = currentTurnAngle;
+        roueFR.steerAngle = currentTurnAngle;
 
-        // …and to calculate how much to steer 
-        // (the car steers more gently at top speed)
-        float currentSteerRange = Mathf.Lerp(steeringRange, steeringRangeAtMaxSpeed, speedFactor);
+        SetWheel(roueFR, frontRightWheelMesh);
+        SetWheel(roueFL, frontLeftWheelMesh);
+        SetWheel(roueRR, backRightWheelMesh);
+        SetWheel(roueRL, backLeftWheelMesh);
 
-        // Check whether the user input is in the same direction 
-        // as the car's velocity
-        bool isAccelerating = Mathf.Sign(vInput) == Mathf.Sign(forwardSpeed);
+    }
 
-        foreach (var wheel in wheels)
-        {
-            // Apply steering to Wheel colliders that have "Steerable" enabled
-            if (wheel.steerable)
-            {
-                wheel.WheelCollider.steerAngle = hInput * currentSteerRange;
-            }
-            
-            if (isAccelerating)
-            {
-                // Apply torque to Wheel colliders that have "Motorized" enabled
-                if (wheel.motorized)
-                {
-                    wheel.WheelCollider.motorTorque = vInput * currentMotorTorque;
-                }
-                wheel.WheelCollider.brakeTorque = 0;
-            }
-            else
-            {
-                // If the user is trying to go in the opposite direction
-                // apply brakes to all wheels
-                wheel.WheelCollider.brakeTorque = Mathf.Abs(vInput) * brakeTorque;
-                wheel.WheelCollider.motorTorque = 0;
-            }
+    void SetWheel(WheelCollider wheelCol, Transform wheelMesh)
+    {
+        Vector3 pos;
+        Quaternion rot;
+        wheelCol.GetWorldPose(out pos, out rot);
 
-        }
+        wheelMesh.position = pos;
+        wheelMesh.rotation = rot;
 
     }
 

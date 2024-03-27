@@ -305,7 +305,6 @@ GameObject:
   m_Component:
   - component: {fileID: 89090467}
   - component: {fileID: 89090468}
-  - component: {fileID: 89090469}
   m_Layer: 0
   m_Name: Wheel_FR
   m_TagString: Untagged
@@ -367,22 +366,6 @@ WheelCollider:
   m_LayerOverridePriority: 0
   m_Enabled: 1
   m_ProvidesContacts: 0
---- !u!114 &89090469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 89090466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4435b2bc79b22de45aa86705685f5df6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wheelModel: {fileID: 1588890002}
-  WheelCollider: {fileID: 0}
-  steerable: 1
-  motorized: 1
 --- !u!1 &177639662
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,7 +376,6 @@ GameObject:
   m_Component:
   - component: {fileID: 177639663}
   - component: {fileID: 177639664}
-  - component: {fileID: 177639665}
   m_Layer: 0
   m_Name: Wheel_FL
   m_TagString: Untagged
@@ -455,22 +437,6 @@ WheelCollider:
   m_LayerOverridePriority: 0
   m_Enabled: 1
   m_ProvidesContacts: 0
---- !u!114 &177639665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 177639662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4435b2bc79b22de45aa86705685f5df6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wheelModel: {fileID: 407437257}
-  WheelCollider: {fileID: 0}
-  steerable: 1
-  motorized: 1
 --- !u!1 &198647102
 GameObject:
   m_ObjectHideFlags: 0
@@ -986,7 +952,7 @@ Transform:
   m_Children:
   - {fileID: 889814141}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &734341475
 GameObject:
@@ -1130,7 +1096,6 @@ GameObject:
   m_Component:
   - component: {fileID: 842069954}
   - component: {fileID: 842069955}
-  - component: {fileID: 842069956}
   m_Layer: 0
   m_Name: Wheel_RL
   m_TagString: Untagged
@@ -1192,22 +1157,6 @@ WheelCollider:
   m_LayerOverridePriority: 0
   m_Enabled: 1
   m_ProvidesContacts: 0
---- !u!114 &842069956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 842069953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4435b2bc79b22de45aa86705685f5df6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wheelModel: {fileID: 198647103}
-  WheelCollider: {fileID: 0}
-  steerable: 0
-  motorized: 1
 --- !u!1 &889814140
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,8 +1189,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 79718944}
-  - {fileID: 2075771922}
   - {fileID: 1797381809}
+  - {fileID: 2075771922}
   m_Father: {fileID: 494332832}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1305,12 +1254,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f127cd9467a854e98549c713868634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  motorTorque: 2000
-  brakeTorque: 2000
-  maxSpeed: 20
-  steeringRange: 30
-  steeringRangeAtMaxSpeed: 10
-  centreOfGravityOffset: -1
+  roueFL: {fileID: 177639664}
+  roueFR: {fileID: 89090468}
+  roueRL: {fileID: 842069955}
+  roueRR: {fileID: 1586242959}
+  frontRightWheelMesh: {fileID: 1588890002}
+  frontLeftWheelMesh: {fileID: 407437257}
+  backRightWheelMesh: {fileID: 1026490023}
+  backLeftWheelMesh: {fileID: 198647103}
+  acceleration: 500
+  breakingForce: 300
+  maxTurnAngle: 15
 --- !u!1 &1026490022
 GameObject:
   m_ObjectHideFlags: 0
@@ -1374,37 +1328,6 @@ Transform:
   m_Father: {fileID: 2124524989}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1555954536
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1555954537}
-  m_Layer: 0
-  m_Name: VoitureMouvement
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1555954537
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1555954536}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1586242957
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,7 +1338,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1586242958}
   - component: {fileID: 1586242959}
-  - component: {fileID: 1586242960}
   m_Layer: 0
   m_Name: Wheel_RR
   m_TagString: Untagged
@@ -1477,22 +1399,6 @@ WheelCollider:
   m_LayerOverridePriority: 0
   m_Enabled: 1
   m_ProvidesContacts: 0
---- !u!114 &1586242960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1586242957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4435b2bc79b22de45aa86705685f5df6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wheelModel: {fileID: 1026490023}
-  WheelCollider: {fileID: 0}
-  steerable: 0
-  motorized: 1
 --- !u!1 &1588890001
 GameObject:
   m_ObjectHideFlags: 0
@@ -1923,7 +1829,7 @@ Transform:
   - {fileID: 1926292164}
   - {fileID: 1141086663}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &60292380018242015
 Transform:
