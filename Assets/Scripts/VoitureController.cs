@@ -9,7 +9,7 @@ public class VoitureController : MonoBehaviour
     public float steeringRangeAtMaxSpeed = 10;
     public float centreOfGravityOffset = -1f;
 
-    WheelControl[] wheels;
+    RoueController[] wheels;
     Rigidbody rigidBody;
 
     // Start is called before the first frame update
@@ -21,7 +21,7 @@ public class VoitureController : MonoBehaviour
         rigidBody.centerOfMass += Vector3.up * centreOfGravityOffset;
 
         // Find all child GameObjects that have the WheelControl script attached
-        wheels = GetComponentsInChildren<WheelControl>();
+        wheels = GetComponentsInChildren<RoueController>();
     }
 
     // Update is called once per frame
