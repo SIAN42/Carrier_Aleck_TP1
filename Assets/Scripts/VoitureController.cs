@@ -17,7 +17,7 @@ public class VoitureController : MonoBehaviour
 
     
     [SerializeField] private float acceleration = 500f;
-    [SerializeField] private float breakingForce = 300f;
+    //[SerializeField] private float breakingForce = 300f;
     [SerializeField] private float maxTurnAngle = 15f;
 
     float currentAcceleration = 0;
