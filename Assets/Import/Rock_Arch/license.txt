@@ -1,0 +1,11 @@
+Model Information:
+* title:	Rock Arch
+* source:	https://sketchfab.com/3d-models/rock-arch-a21112fd607542d08f97725908201a07
+* author:	diashes (https://sketchfab.com/diashes)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Rock Arch" (https://sketchfab.com/3d-models/rock-arch-a21112fd607542d08f97725908201a07) by diashes (https://sketchfab.com/diashes) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
