@@ -191,6 +191,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RotatorPS2
       objectReference: {fileID: 0}
+    - target: {fileID: 1032870836932200, guid: 26255240385821a4185c7163c7a7aec6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4006415882549052, guid: 26255240385821a4185c7163c7a7aec6, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.6806
@@ -390,6 +394,11 @@ PrefabInstance:
     - target: {fileID: 4681020180353910, guid: 26255240385821a4185c7163c7a7aec6, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.05800002
+      objectReference: {fileID: 0}
+    - target: {fileID: 65674772761106248, guid: 26255240385821a4185c7163c7a7aec6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 108813528091562228, guid: 26255240385821a4185c7163c7a7aec6,
         type: 3}
