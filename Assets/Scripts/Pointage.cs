@@ -11,7 +11,7 @@ public class Pointage : MonoBehaviour
         if(other.gameObject.tag == "Arche"){
         
             pointage += 1;
-            Debug.Log(pointage);
+            //Debug.Log(pointage);
 
         }
 
