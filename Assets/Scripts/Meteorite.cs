@@ -5,15 +5,15 @@ public class Meteorite : MonoBehaviour
 {
 
 
-   // [SerializeField]
+   // [SerializeField] private
 
 
 
 
-    void Start()
-    {
+   void Start()
+   {
         
-    }
+   }
 
    // [SerializeField] private Animator myDoor;
 
