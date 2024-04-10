@@ -7798,7 +7798,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meteor: {fileID: 7359263250318381973, guid: 835fa1fe5048c134fb958dfdfd5ea962, type: 3}
   zone: {x: 500, y: 15, z: 500}
-  repeatTime: 0.5
 --- !u!1001 &680386186
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10525,7 +10524,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 874783946}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 249, y: 215.7, z: 254.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10553,7 +10552,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 361.3297
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -13025,6 +13024,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2666818932406669728, guid: 543d09f7c61e8104fbb9e412e3778ed0,
+        type: 3}
+      propertyPath: _renfoncement
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4583459715118273064, guid: 543d09f7c61e8104fbb9e412e3778ed0,
         type: 3}
       propertyPath: m_RootOrder
@@ -13090,7 +13094,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Arche
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1723876607970945377, guid: 543d09f7c61e8104fbb9e412e3778ed0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -16409,7 +16414,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Arche_Fin
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1723876607970945377, guid: 543d09f7c61e8104fbb9e412e3778ed0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -18430,6 +18436,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2666818932406669728, guid: 543d09f7c61e8104fbb9e412e3778ed0,
+        type: 3}
+      propertyPath: _renfoncement
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4583459715118273064, guid: 543d09f7c61e8104fbb9e412e3778ed0,
         type: 3}
       propertyPath: m_RootOrder
@@ -18495,7 +18506,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Arche
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1723876607970945377, guid: 543d09f7c61e8104fbb9e412e3778ed0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -20076,6 +20088,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 679997048}
+  - {fileID: 1959163013}
   - {fileID: 874783947}
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -20897,6 +20910,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2666818932406669728, guid: 543d09f7c61e8104fbb9e412e3778ed0,
+        type: 3}
+      propertyPath: _renfoncement
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4583459715118273064, guid: 543d09f7c61e8104fbb9e412e3778ed0,
         type: 3}
       propertyPath: m_RootOrder
@@ -20962,7 +20980,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Arche
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1723876607970945377, guid: 543d09f7c61e8104fbb9e412e3778ed0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -22383,6 +22402,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1953482212}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1959163012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1959163013}
+  m_Layer: 0
+  m_Name: Arche_Animation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1959163013
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959163012}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 256.35687, y: 164.28677, z: 138.1261}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1744795150}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1964220342
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23174,6 +23224,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2666818932406669728, guid: 543d09f7c61e8104fbb9e412e3778ed0,
+        type: 3}
+      propertyPath: _renfoncement
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4583459715118273064, guid: 543d09f7c61e8104fbb9e412e3778ed0,
         type: 3}
       propertyPath: m_RootOrder
@@ -23239,7 +23294,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Arche
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1723876607970945377, guid: 543d09f7c61e8104fbb9e412e3778ed0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -26385,6 +26441,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2666818932406669728, guid: 543d09f7c61e8104fbb9e412e3778ed0,
+        type: 3}
+      propertyPath: _renfoncement
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4583459715118273064, guid: 543d09f7c61e8104fbb9e412e3778ed0,
         type: 3}
       propertyPath: m_RootOrder
@@ -26450,7 +26511,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Arche
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4586211370992269552, guid: 543d09f7c61e8104fbb9e412e3778ed0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

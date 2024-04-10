@@ -11,13 +11,21 @@ public class Pointage : MonoBehaviour
         if(other.gameObject.tag == "Arche"){
         
             pointage += 1;
-            //Debug.Log(pointage);
+            Debug.Log(pointage);
 
         }
 
         else if(other.gameObject.tag == "Arche_Fin" && pointage >= 5){
-                
+        
             SceneManager.LoadScene("Fin_Gagnee");
+            Debug.Log("fin gagnée");
+
+        }
+
+        else if(other.gameObject.tag == "Arche_Fin" && pointage <= 4){
+            
+            SceneManager.LoadScene("Fin_Perdu");
+            Debug.Log("fin perdu");
 
         }
 

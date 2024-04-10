@@ -6,11 +6,11 @@ public class SpawnZone : MonoBehaviour
 
     [SerializeField] private Vector3 zone;
 
-    [SerializeField] private float repeatTime = 0.5f;
+    //[SerializeField] private float repeatTime = 10f;
 
     void Start(){
 
-        InvokeRepeating("ApparitionMeteor", 20f, repeatTime);
+        InvokeRepeating("ApparitionMeteor", 3f, 10f);
 
     }
 
