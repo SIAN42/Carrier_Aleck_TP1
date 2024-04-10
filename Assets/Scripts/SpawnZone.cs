@@ -10,7 +10,7 @@ public class SpawnZone : MonoBehaviour
 
     void Start(){
 
-        InvokeRepeating("ApparitionMeteor", 5.0f, repeatTime);
+        InvokeRepeating("ApparitionMeteor", 20f, repeatTime);
 
     }
 

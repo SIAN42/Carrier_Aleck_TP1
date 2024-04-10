@@ -10645,6 +10645,7 @@ GameObject:
   - component: {fileID: 889814143}
   - component: {fileID: 889814142}
   - component: {fileID: 889814144}
+  - component: {fileID: 889814145}
   m_Layer: 0
   m_Name: Voiture
   m_TagString: Player
@@ -10741,6 +10742,19 @@ MonoBehaviour:
   backLeftWheelMesh: {fileID: 198647103}
   acceleration: 2000
   maxTurnAngle: 10
+--- !u!114 &889814145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889814140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ba951472d05ca14ca9a7912cf857f03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointage: 5
 --- !u!1001 &897239275
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12938,6 +12952,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1141086663}
     m_Modifications:
+    - target: {fileID: 2363391503182026166, guid: 543d09f7c61e8104fbb9e412e3778ed0,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4583459715118273064, guid: 543d09f7c61e8104fbb9e412e3778ed0,
         type: 3}
       propertyPath: m_RootOrder
@@ -12996,7 +13015,7 @@ PrefabInstance:
     - target: {fileID: 4662328635350161144, guid: 543d09f7c61e8104fbb9e412e3778ed0,
         type: 3}
       propertyPath: m_Name
-      value: Arche_3
+      value: Arche
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16247,6 +16266,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1141086663}
     m_Modifications:
+    - target: {fileID: 2363391503182026166, guid: 543d09f7c61e8104fbb9e412e3778ed0,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4583459715118273064, guid: 543d09f7c61e8104fbb9e412e3778ed0,
         type: 3}
       propertyPath: m_RootOrder
@@ -16305,7 +16329,7 @@ PrefabInstance:
     - target: {fileID: 4662328635350161144, guid: 543d09f7c61e8104fbb9e412e3778ed0,
         type: 3}
       propertyPath: m_Name
-      value: Arche_6
+      value: Arche_Fin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18323,6 +18347,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1141086663}
     m_Modifications:
+    - target: {fileID: 2363391503182026166, guid: 543d09f7c61e8104fbb9e412e3778ed0,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4583459715118273064, guid: 543d09f7c61e8104fbb9e412e3778ed0,
         type: 3}
       propertyPath: m_RootOrder
@@ -18381,7 +18410,7 @@ PrefabInstance:
     - target: {fileID: 4662328635350161144, guid: 543d09f7c61e8104fbb9e412e3778ed0,
         type: 3}
       propertyPath: m_Name
-      value: Arche_4
+      value: Arche
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19777,7 +19806,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1732460708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20904,6 +20933,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1141086663}
     m_Modifications:
+    - target: {fileID: 2363391503182026166, guid: 543d09f7c61e8104fbb9e412e3778ed0,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4583459715118273064, guid: 543d09f7c61e8104fbb9e412e3778ed0,
         type: 3}
       propertyPath: m_RootOrder
@@ -20962,7 +20996,7 @@ PrefabInstance:
     - target: {fileID: 4662328635350161144, guid: 543d09f7c61e8104fbb9e412e3778ed0,
         type: 3}
       propertyPath: m_Name
-      value: Arche_5
+      value: Arche
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23171,6 +23205,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1141086663}
     m_Modifications:
+    - target: {fileID: 2363391503182026166, guid: 543d09f7c61e8104fbb9e412e3778ed0,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4583459715118273064, guid: 543d09f7c61e8104fbb9e412e3778ed0,
         type: 3}
       propertyPath: m_RootOrder
@@ -23229,7 +23268,7 @@ PrefabInstance:
     - target: {fileID: 4662328635350161144, guid: 543d09f7c61e8104fbb9e412e3778ed0,
         type: 3}
       propertyPath: m_Name
-      value: Arche_2
+      value: Arche
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26368,6 +26407,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1141086663}
     m_Modifications:
+    - target: {fileID: 2363391503182026166, guid: 543d09f7c61e8104fbb9e412e3778ed0,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4583459715118273064, guid: 543d09f7c61e8104fbb9e412e3778ed0,
         type: 3}
       propertyPath: m_RootOrder
@@ -26426,7 +26470,7 @@ PrefabInstance:
     - target: {fileID: 4662328635350161144, guid: 543d09f7c61e8104fbb9e412e3778ed0,
         type: 3}
       propertyPath: m_Name
-      value: Arche_1
+      value: Arche
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
