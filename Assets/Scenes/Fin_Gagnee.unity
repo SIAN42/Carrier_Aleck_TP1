@@ -839,7 +839,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Gagnee!
+  m_text: Gagne!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9724b1db8afffcb4799ff3ca4215c4b0, type: 2}
   m_sharedMaterial: {fileID: -4980185788198158141, guid: 9724b1db8afffcb4799ff3ca4215c4b0,
