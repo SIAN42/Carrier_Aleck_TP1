@@ -4,9 +4,8 @@ using UnityEngine.SceneManagement;
 public class Meteorite : MonoBehaviour
 {
 
-    
 
-    seriali
+   // [SerializeField]
 
 
 
@@ -15,31 +14,29 @@ public class Meteorite : MonoBehaviour
     {
         
     }
-    
 
+   // [SerializeField] private Animator myDoor;
 
-    [SerializeField] private Animator myDoor;
-
-    private void OnTriggerEnter(Collider other) {
+ //   private void OnTriggerEnter(Collider other) {
         
-        if (other.CompareTag("Player")){
+   //     if (other.CompareTag("Player")){
 
-            SceneManager.LoadScene(_nomScene);
-            myDoor.SetBool("IsOpen", false);
+   //         SceneManager.LoadScene(_nomScene);
+   //         myDoor.SetBool("IsOpen", false);
             
 
-        }
+    //    }
 
-    }
+   // }
 
-    private void OnTriggerExit(Collider other) {
+//    private void OnTriggerExit(Collider other) {
     
-        if (other.CompareTag("Player")){
+    //    if (other.CompareTag("Player")){
 
-            myDoor.SetBool("IsOpen", false);
+    //        myDoor.SetBool("IsOpen", false);
 
-        }
+//}
 
-    }
+   // }
 
 }
