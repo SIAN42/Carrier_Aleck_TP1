@@ -3,17 +3,14 @@ using UnityEngine;
 public class Nuage_ObjetVolant : MonoBehaviour
 {
 
-    [SerializeField] private float vitesse = 1;
+    [SerializeField] private float _vitesse = 2f;
 
-    //[SerializeField] private string _direction = "foward";
-
-    [SerializeField] private float repeatTime = 0.5f;
+    //[SerializeField] private string _direction = "forward";
 
     
-    void Update()
-    {
+    void Update(){
         
-        transform.Translate(Vector3.foward * vitesse * Time.deltaTime)
+        transform.Translate(Vector3.forward * _vitesse * Time.deltaTime);
 
     }
 }
